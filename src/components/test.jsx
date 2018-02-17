@@ -22,31 +22,6 @@ class Test extends Component {
         this.sendShit = this.sendShit.bind(this);
     }
 
-    // initWeb3() {
-    //     var web3;
-        
-    //     if (typeof window.web3 !== 'undefined') {
-    //         web3 = new Web3(window.web3.currentProvider);
-    //         MyContract = contract(HelloWorld);
-
-    //         const account = web3.eth.accounts;
-    //         this.setState({ account })            
-    //         console.log(`Accounts ARE: ${account}`);
-        
-    //         MyContract.defaults({
-    //             from: account[0],
-    //             gas: 4712388,
-    //             gasPrice: 1000000000
-    //         })
-    //         MyContract.setProvider(web3.currentProvider);
-    //         console.log(`Web 3 version is: ${web3.version.network}`);
-    //     } else {
-    //         console.log('No web3? You should consider trying MetaMask!')
-    //         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-    //         console.log(`Connected to localhost:8545 or testrpc`);
-    //     }
-    // }
-
     async initWeb3() {
         var web3;
         // var MyContract;
@@ -84,21 +59,6 @@ class Test extends Component {
        })
 
     }
-
-    // async deployContract() {
-    //     // MyContract.new().then(async (i) => {
-    //     //     console.log(await i.getCurrentAddress());
-    //     // });
-
-    //     // let contractInstance = await MyContract.new();
-    //     // let contractAddress = await contractInstance.getCurrentAddress();
-
-    //     let contractInstance = await MyContract.new();
-    //     const address = await contractInstance.getCurrentAddress()
-    //     const owner = await contractInstance.getOwner()
-    //     console.log(`address: ${address}`);
-    //     console.log(`owner: ${owner}`);
-    // }
 
     async sendShit() {
         let contractInstance = await MyContract.at(this.state.contractAddress)
