@@ -1,5 +1,5 @@
-var HelloWorld = artifacts.require("./Test.sol");
+var CoinFlip = artifacts.require("./CoinFlipOracle.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(HelloWorld);
+  deployer.deploy(CoinFlip);
 };
