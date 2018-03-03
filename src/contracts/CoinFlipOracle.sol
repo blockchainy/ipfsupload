@@ -23,7 +23,7 @@ contract CoinFlipOracle is usingOraclize {
   // have to pay oraclize service so it's payable
   function flipCoin() payable {
     Log("Oraclize query was sent, waiting for response");
-    oraclizeID = oraclize_query("WolframAlpha", "flip a coin", 5000000);
+    oraclizeID = oraclize_query("WolframAlpha", "flip a coin");
   }
 
   function __callback(bytes32 _oraclizeID, string _result) {
@@ -32,7 +32,12 @@ contract CoinFlipOracle is usingOraclize {
     result = _result;
   }
 
-  function getResult() view returns(string) {
+  function flipCoin2() payable {
+    Log("Oraclize query was sent, waiting for response");
+    oraclizeID = oraclize_query("WolframAlpha", "flip a coin");
+  }
+
+  function getResult() constant returns(string) {
     return result;
   }
 
@@ -42,6 +47,10 @@ contract CoinFlipOracle is usingOraclize {
 
   function sendIntoContract() payable {
     this.transfer(msg.value);
+  }
+
+  function printLog() {
+    Log("this shit works");
   }
 }
 

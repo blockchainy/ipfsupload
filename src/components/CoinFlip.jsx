@@ -58,22 +58,15 @@ class CoinFlipComp extends Component {
 
   async flipCoin() {
     let contractInstance = await CoinFlipContract.at(this.state.contractAddress);
-    await contractInstance.flipCoin();
-    let result = await contractInstance.getResult();
-
-    // var resultEvent = contractInstance.Log();
-    // resultEvent.watch(function (error, result) {
-    //   if (!error) {
-    //     console.log(result.args.text);
-    //   } else {
-    //     console.log(error);
-    //   }
-    // })
-
-    console.log(result);
-    console.log(`Result of coin flip toString: ${result.toString()}`);
-    console.log(result[0]);
-    console.log(`Result of coin flip type: ${typeof result}`);
+    await contractInstance.flipCoin({ value: 10000000000000000 });
+    var event = contractInstance.Log();
+    event.watch(function (error, result) {
+      if (!error) {
+        console.log(result.args.text);
+      } else {
+        console.log(error);
+      }
+    })
   }
 
   async getResult() {
