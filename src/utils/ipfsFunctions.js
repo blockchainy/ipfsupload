@@ -4,11 +4,11 @@ import Promise from 'bluebird';
 let ipfs = Promise.promisifyAll(new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' }));
 
 function uploadEntry(entry) {
-  return ipfs.addAsync(JSON.stringify(entry));
+  return ipfs.addJSONAsync(entry);
 }
 
 function getContentWithHash(hash) {
-  return ipfs.catAsync(hash);
+  return ipfs.catJSONAsync(hash);
 }
 
 export default {

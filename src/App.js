@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-// import SubmitHash from './components/SubmitHash';
-// import Parent from './components/Parent';
-import CoinFlip from './components/CoinFlip';
 
+import UploadLot from './components/UploadLot';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <CoinFlip />
+        <UploadLot />
       </div>
     );
   }
